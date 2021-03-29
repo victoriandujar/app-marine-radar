@@ -67,13 +67,13 @@ export default function Home({ navigation }) {
               <LinkAnimals>
                 <TextAnimals
                   style={{ fontSize: 12 }}
-                  onPress={() => navigation.navigate('Mapa')}
+                  onPress={() => navigation.navigate('Map')}
                 >
                   Mapa
                 </TextAnimals>
                 <ButtonAnimals
                   style={{ padding: 2 }}
-                  onPress={() => navigation.navigate('Mapa')}
+                  onPress={() => navigation.navigate('Map')}
                 >
                   <Icon name="east" size={12} color="#25C1AF" />
                 </ButtonAnimals>
