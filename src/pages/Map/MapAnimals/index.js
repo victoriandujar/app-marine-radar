@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 import { Wrapper, TextMapAnimals, ViewMapaAnimais, ViewTextMapaAnimais } from './styles';
 import MapView, { Marker } from 'react-native-maps'
@@ -8,7 +8,21 @@ import Footer from '../../../components/Footer';
 
 import { useTitle } from '../../../context/title';
 
+import api from '../../../services/api';
+
 export default function MapAnimals({ navigation }) {
+  const [ species, setSpecies ] = useState([])
+  useEffect(() => {
+    async function loadSpecies() {
+      const response = await api.get('/api.json');
+      const { data } = response;
+      setSpecies(data);
+      //console.log(data);
+      console.warn(data); 
+    }
+  loadSpecies(); 
+  }, []) 
+
   const { setTitle } = useTitle('');
   setTitle(`Mapa - Avistamentos`);
 
