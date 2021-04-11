@@ -77,10 +77,10 @@ export default function Animals({ navigation }) {
             <ImageWhales source={Ray} />
             <ContentWhales>
               <TextWhalesClass>Batoidea</TextWhalesClass>
-              <TextWhales onPress={() => navigation.navigate('Ray')}>
+              <TextWhales onPress={() => navigation.navigate('Species')}>
                 Arraia
               </TextWhales>
-              <ButtonWhales onPress={() => navigation.navigate('Ray')}>
+              <ButtonWhales onPress={() => navigation.navigate('Species')}>
                 <Icon name="east" size={14} color="#25C1AF" />
               </ButtonWhales>
             </ContentWhales>
