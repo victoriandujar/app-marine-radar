@@ -51,10 +51,10 @@ export default function Animals({ navigation }) {
             <ImageWhales source={Whales} />
             <ContentWhales>
               <TextWhalesClass>Mysticeti</TextWhalesClass>
-              <TextWhales onPress={() => navigation.navigate('Whales')}>
+              <TextWhales onPress={() => navigation.navigate('Species')}>
                 Baleia
               </TextWhales>
-              <ButtonWhales onPress={() => navigation.navigate('Whales')}>
+              <ButtonWhales onPress={() => navigation.navigate('Species')}>
                 <Icon name="east" size={14} color="#25C1AF" />
               </ButtonWhales>
             </ContentWhales>
@@ -64,10 +64,10 @@ export default function Animals({ navigation }) {
             <ImageWhales source={Shark} />
             <ContentWhales>
               <TextWhalesClass>Selachimorpha</TextWhalesClass>
-              <TextWhales onPress={() => navigation.navigate('Sharks')}>
+              <TextWhales onPress={() => navigation.navigate('Species')}>
                 Tubarão
               </TextWhales>
-              <ButtonWhales onPress={() => navigation.navigate('Sharks')}>
+              <ButtonWhales onPress={() => navigation.navigate('Species')}>
                 <Icon name="east" size={14} color="#25C1AF" />
               </ButtonWhales>
             </ContentWhales>
@@ -77,10 +77,10 @@ export default function Animals({ navigation }) {
             <ImageWhales source={Ray} />
             <ContentWhales>
               <TextWhalesClass>Batoidea</TextWhalesClass>
-              <TextWhales onPress={() => navigation.navigate('Ray')}>
+              <TextWhales onPress={() => navigation.navigate('Whales')}>
                 Arraia
               </TextWhales>
-              <ButtonWhales onPress={() => navigation.navigate('Ray')}>
+              <ButtonWhales onPress={() => navigation.navigate('Whales')}>
                 <Icon name="east" size={14} color="#25C1AF" />
               </ButtonWhales>
             </ContentWhales>
