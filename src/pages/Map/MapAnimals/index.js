@@ -12,13 +12,15 @@ import api from '../../../services/api';
 
 export default function MapAnimals({ navigation }) {
   const [ species, setSpecies ] = useState([])
+  const [ latitude, setLatitude ] = useState(48.4144333394702);
+  const [ longitude, setLongitude ] = useState(-123.36306758092356);
   useEffect(() => {
     async function loadSpecies() {
       const response = await api.get('/api.json');
       const { data } = response;
       setSpecies(data);
-      //console.log(data);
-      console.warn(data); 
+      console.log(data);
+      //console.warn(data); 
     }
   loadSpecies(); 
   }, []) 
@@ -37,13 +39,28 @@ export default function MapAnimals({ navigation }) {
         <ViewMapaAnimais>
           <MapView
             initialRegion= {{
-              latitude: -23.5475000,
-              longitude: -46.6361100,
-              latitudeDelta: 0.0042,
-              longitudeDelta: 0.0031,
+              latitude,
+              longitude,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
             }}
             style={styles.mapView}
-          />
+            rotateEnabled={false}
+            showsPointsOfInterest={false}
+            showsBuildings={false}
+          >{ species.map((localObservacao) => (
+                          <MapView.Marker
+                          key={localObservacao.id}
+                          coordinate = {{
+                            latitude: localObservacao.latitude,
+                            longitude: localObservacao.longitude
+                          }}
+                          title={"A espécie " + localObservacao.species + " foi avistada no local!" }
+                          description={localObservacao.description}
+                          icon={require('../../../assets/Icons/baleia.png')}
+                        />)
+            )}
+          </MapView>
         </ViewMapaAnimais>
       </Wrapper>
       <Footer navigation={navigation} />

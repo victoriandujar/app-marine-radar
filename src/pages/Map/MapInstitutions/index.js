@@ -32,8 +32,6 @@ export default function MapInstitutions({ navigation }) {
             }}
             style={styles.mapView}
             rotateEnabled={false}
-            scrollEnabled={false}
-            zoomEnable={false}
             showsPointsOfInterest={false}
             showsBuildings={false}
           >
