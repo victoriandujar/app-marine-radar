@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
+import AsyncStorage from '@react-native-community/async-storage';
 import {
   Wrapper,
   TextMapAnimals,
@@ -21,11 +22,16 @@ export default function MapAnimals({ navigation }) {
   const [longitude, setLongitude] = useState(-123.36306758092356);
   useEffect(() => {
     async function loadSpecies() {
-      const response = await api.get('/api.json');
-      const { data } = response;
-      setSpecies(data);
-      console.log(data);
-      // console.warn(data);
+        try {
+          const response = await api.get('/api.json');
+          const { data } = response;
+          setSpecies(data);
+          const jsonValue = JSON.stringify(data);
+          await AsyncStorage.setItem('key', jsonValue);
+        } catch {
+          const valorStorage = await AsyncStorage.getItem('key');
+          setSpecies(JSON.parse(valorStorage));
+        }
     }
     loadSpecies();
   }, []);
